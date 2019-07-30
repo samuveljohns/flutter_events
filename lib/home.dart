@@ -1,4 +1,5 @@
 import 'package:event/global_event.dart';
+import 'package:event/local_events.dart';
 import 'package:flutter/material.dart';
 class HomeScreen extends StatelessWidget {
   @override
@@ -18,8 +19,9 @@ class HomeScreen extends StatelessWidget {
           ),
           body: TabBarView(
               children:<Widget>[
-                Tab(child: GlobalEventScreen()),
-                Tab(text: "Local")
+                Tab(
+                    child: GlobalEventScreen()),
+                Tab(child: LocalEventScreen())
               ]
           ),
         ),

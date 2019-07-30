@@ -4,6 +4,8 @@
 
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 List<Event> eventFromJson(String str) => new List<Event>.from(json.decode(str).map((x) => Event.fromJson(x)));
 
 String eventToJson(List<Event> data) => json.encode(new List<dynamic>.from(data.map((x) => x.toJson())));
@@ -33,6 +35,11 @@ class Event {
     this.description,
   });
 
+  Event.fromSnapshot(DocumentSnapshot snapshot):
+        eventName = snapshot['eventName'],
+        city = snapshot['city'],
+        eventDate = snapshot['eventDate'];
+
   factory Event.fromJson(Map<String, dynamic> json) => new Event(
     eventName: json["event_name"],
     eventUrl: json["event_url"],
@@ -46,6 +53,7 @@ class Event {
     description: json["description"],
   );
 
+
   Map<String, dynamic> toJson() => {
     "event_name": eventName,
     "event_url": eventUrl,
@@ -58,4 +66,6 @@ class Event {
     "html_message": htmlMessage,
     "description": description,
   };
+
 }
+

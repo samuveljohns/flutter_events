@@ -1,5 +1,6 @@
 import 'package:event/modal/event_modal.dart';
 import 'package:event/services/api_services.dart';
+import 'package:event/ui/event_card.dart';
 import 'package:flutter/material.dart';
 
 class GlobalEventScreen extends StatelessWidget {
@@ -22,16 +23,4 @@ class GlobalEventScreen extends StatelessWidget {
     );
   }
 }
-class EventCard extends StatelessWidget {
-  final Event event;
-  EventCard({@required this.event});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Text(event.eventName),
-    );
-  }
-}
-
 
